@@ -1,0 +1,53 @@
+#%RAML 1.0
+types:
+  correlationId:
+    description: This is a correlationId
+    example: asdfasdi09qerqwdq454E
+    type: string
+  STATUS:
+    description: This is status of the response from the destination apps.
+    example: SUCCESS
+    type: string
+  REMARKS:
+    description: This is a new DataType
+    example: because of some reason you are request is not processed.
+    type: string
+  response:
+    description: Property description
+    example: Hey than you for your response.
+    type: string
+title: call-back-response
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/560e3e98-e4ab-4818-acaf-3980aa1777d2/
+description: This is a generic call back API. once destination apps completed their tasks they will send response through this API.
+mediaType:
+  - application/json
+protocols:
+  - HTTP
+/send-response:
+  post:
+    body:
+      properties:
+        correlationId:
+          description: Property description
+          type:
+            - correlationId
+        STATUS:
+          description: Property description
+          type:
+            - STATUS
+        REMARKS:
+          description: Property description
+          example: Example
+          type: string
+    responses:
+      "200":
+        description: hey your request is processed please find the result in below.
+        body:
+          application/json:
+            properties:
+              correlationId:
+                description: Property description
+                type:
+                  - correlationId
+              response:
+                description: Hey thank you for your response.
