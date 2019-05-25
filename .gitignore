@@ -45,4 +45,4 @@ target/
 .mule/**
 .mule/**/*
 .DS_Store
-velocity.log
+velocity.log..................................
